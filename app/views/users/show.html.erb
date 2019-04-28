@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-xs-6">
+<h1>ユーザー情報</h1>
+<hr>
+<h4>名前：<%= @user.family_name %><%= @user.first_name %>さん</h2>
+<h4>自己紹介：<%= @user.self_introduction %></h2>
+<hr>
+<% if @user.id == current_user.id %>
+<p><a href="/users/<%= @user.id %>/edit"class="btn btn-success">ユーザー情報編集</a></p>
+<% else %>
+<%= form_for @room do |f| %>
+<%= fields_for @entry do |e| %>
+<%= e.hidden_field :user_id, :value => @user.id %>
+<% end %>
+<p><%= f.submit "チャットを始める", :class => "btn btn-warning" %></p>
+<% end %>
+<% end %>
+</div>
+<% if @user.id == current_user.id %>
+<div class="col-xs-6">
+<h1>チャット一覧</h1>
+<hr>
+<% @entries.each do |e| %>
+<p><a href="/rooms/<%= e.room.id %>"><strong><%=e.room.name %></strong></a></p>
+<hr>
+<% end %>
+<a href="/rooms" class="btn btn-info">チャット一覧を見る</a>
+</div>
+<% end %>
+
+
+
+</div>
+<p><a href="/posts" class="btn btn-info">トップに戻る</a></p>
+<p><a href="/users"class="btn btn-primary">ユーザー一覧</a></p>

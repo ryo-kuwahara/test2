@@ -1,0 +1,15 @@
+<h2>チャット情報を編集する</h2>
+<hr>
+
+<%= form_for @room do |f| %>
+<h4><%= f.label :name %></h4>
+<p><%= f.text_field :name, :class => "form-control my-form",:placeholder => "名前を入力して下さい" %></p>
+<br>
+<h4><%= f.label :explain %></h4>
+<p><%= f.text_area :explain, :class => "form-control my-form", :size => "30x10", :placeholder => "説明を入力して下さい" %></p>
+<br>
+<%= f.submit "変更する", :class => "btn btn-success" %>
+<% end %>
+<br>
+<p><a href="/rooms/<%= @room.id %>" class="btn btn-primary">チャット情報に戻る</a></p>
+<p><a href="/" class="btn btn-info">トップに戻る</a></p>

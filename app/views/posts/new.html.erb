@@ -1,0 +1,12 @@
+<h1>投稿を作る</h1>
+<hr>
+<%= form_for @post do |f| %>
+<h3>内容</h3>
+<%= f.text_area :content, :class => "form-control my-form"%>
+<h3>場所</h3>
+<%= f.text_field :place, :class => "form-control my-form" %>
+<hr>
+<p><%= f.submit "新しく作成", :class => "btn btn-primary" %></p>
+<% end %>
+<a href="/posts" class="btn btn-info">トップに戻る</a>
+

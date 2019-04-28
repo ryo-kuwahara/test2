@@ -1,0 +1,19 @@
+<h1>投稿一覧</h1>
+<hr>
+<% @posts.each do |p| %>
+<h3><a href="/users/<%= p.user_id %>"><%= User.find(p.user_id).family_name %><%= User.find(p.user_id).first_name %>様</a>の投稿</h3>
+<h3>内容</h3>
+<h4><a href="/posts/<%= p.id %>"><%= p.content %></a></h4>
+<h3>場所</h3>
+<h4><a href="/posts/<%= p.id %>"><%= p.place %></a></h4>
+<hr>
+<% end %>
+<p><a href="/posts/new" class="btn btn-primary">新しく投稿する</a></p>
+<p><a href="/" class="btn btn-info">トップに戻る</a></p>
+
+
+
+
+
+
+
